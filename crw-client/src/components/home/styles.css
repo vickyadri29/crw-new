@@ -1,0 +1,57 @@
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.section-header h2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btn-signin {
+  background-color: #56b1c0;
+  color: #ffffff;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background-color: #56b1c0;
+  height: 80px;
+  padding: 14px;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.card-header img {
+  border-radius: 6px;
+}
+
+.card-header p {
+  color: #ffffff;
+}
+
+.card-home {
+  width: 350px;
+}
+
+.title-card {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.content-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.target-card {
+  color: #56b1c0;
+  font-size: 12px;
+  font-weight: 600;
+}
