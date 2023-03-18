@@ -1,0 +1,42 @@
+.section-login {
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-header h2 {
+  color: #56b1c0;
+  font-weight: 600;
+}
+
+.login-header p {
+  color: #868686;
+}
+
+.input-form {
+  border: none;
+  border-bottom: 1px solid #56b1c0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.input-form:active {
+  border: none;
+}
+
+.login-btn {
+  width: 100%;
+  height: 40px;
+  background-color: #56b1c0;
+  margin: 2rem 0;
+}
+
+.login-btn:hover {
+  background-color: #459aa8 !important;
+}

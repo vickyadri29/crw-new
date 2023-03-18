@@ -2,13 +2,16 @@ import { Button, Card } from "antd";
 import "./styles.css";
 
 import loveImage from "../../assets/images/love-image.jpg";
+import { Link } from "react-router-dom";
 
 const HeaderHome = () => {
   return (
     <>
       <div className="section-header">
         <h2>Let's help each others!</h2>
-        <Button className="btn-signin">Sign in</Button>
+        <Link to="/login" className="btn-signin">
+          Sign in
+        </Link>
       </div>
 
       <div className="card-header">

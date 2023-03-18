@@ -17,6 +17,36 @@ export const dataCampaigns = [
     target: "50000000",
     target_date: "14/03/2023",
   },
-  
+  {
+    id: 3,
+    image_url: imageCard,
+    title: "Testing",
+    content: "ini adalah testing",
+    target: "50000000",
+    target_date: "14/03/2023",
+  },
+  {
+    id: 4,
+    image_url: imageCard,
+    title: "Testing",
+    content: "ini adalah testing",
+    target: "50000000",
+    target_date: "14/03/2023",
+  },
+  {
+    id: 5,
+    image_url: imageCard,
+    title: "Testing",
+    content: "ini adalah testing",
+    target: "50000000",
+    target_date: "14/03/2023",
+  },
+  {
+    id: 6,
+    image_url: imageCard,
+    title: "Testing",
+    content: "ini adalah testing",
+    target: "50000000",
+    target_date: "14/03/2023",
+  },
 ];
-
