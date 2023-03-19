@@ -1,11 +1,35 @@
+import { useEffect, useState } from "react";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Card, Progress } from "antd";
-import { dataCampaigns } from "../../data";
+
 import "./styles.css";
+import { api } from "../../config/api";
+
+import imageCard from "../../assets/images/image-card.png";
+import { useNavigate } from "react-router-dom";
 
 const CardHome = () => {
+  const [dataCampaigns, setDataCampaigns] = useState([]);
+  const navigate = useNavigate();
+
+  const fetchDataCampaigns = async () => {
+    await api
+      .get("/campaigns")
+      .then((res) => {
+        console.log(res);
+        setDataCampaigns(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    fetchDataCampaigns();
+  }, []);
+
   return (
     <Swiper
       modules={[Pagination]}
@@ -24,7 +48,7 @@ const CardHome = () => {
       }}
     >
       {dataCampaigns.map(
-        ({ id, title, image_url, content, target, target_date }) => (
+        ({ id, title, curr_donation, content, target, target_date }) => (
           <SwiperSlide
             key={id}
             style={{
@@ -33,9 +57,16 @@ const CardHome = () => {
               justifyContent: "center",
             }}
           >
-            <Card className="card-home" cover={<img src={image_url} />}>
+            <Card
+              onClick={() => navigate(`/campaign/${id}`)}
+              className="card-home"
+              cover={<img src={imageCard} />}
+            >
               <p className="title-card">{title}</p>
-              <Progress showInfo={false} />
+              <Progress
+                showInfo={false}
+                percent={(curr_donation / target) * 100}
+              />
               <div className="content-card">
                 <div>
                   <p>{content}</p>

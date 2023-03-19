@@ -1,16 +1,36 @@
 import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
+
+import { api } from "../../config/api";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
 
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Register successfully!",
+    });
+  };
+
   const handleOnFinish = (values) => {
-    console.log(values);
-    navigate("/");
+    api
+      .post("/register", values)
+      .then((res) => {
+        success();
+        setTimeout(() => {
+          navigate("/login");
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="section-login">
+      {contextHolder}
       <div>
         <div className="login-header">
           <h2>Registration</h2>
@@ -63,7 +83,6 @@ const RegistrationForm = () => {
             />
           </Form.Item>
           <Form.Item
-            name="confirm-password"
             rules={[
               {
                 required: true,

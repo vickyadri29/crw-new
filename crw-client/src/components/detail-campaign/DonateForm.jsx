@@ -1,13 +1,44 @@
-import { Button, Form, Input, InputNumber } from "antd";
+import { Button, Form, Input, InputNumber, message } from "antd";
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { api } from "../../config/api";
 
 const DonateForm = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Thanks for donate!",
+    });
+  };
+
   const [total, setTotal] = useState(0);
   const handleOnFinish = (values) => {
     console.log(values);
+    const data = {
+      campaign_id: id,
+      total: values.total,
+    };
+
+    api
+      .post("/donations", data)
+      .then((res) => {
+        console.log(res);
+        success();
+        setTimeout(() => {
+          navigate(-1);
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="section-login">
+      {contextHolder}
       <div className="login-header">
         <h2>Donate now</h2>
       </div>
