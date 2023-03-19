@@ -1,5 +1,5 @@
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Form, Input } from "antd";
 import "./styles.css";
 
@@ -58,6 +58,7 @@ const LoginForm = () => {
             </Button>
           </Form.Item>
         </Form>
+        <Link to='/register'>Not a member? Sign up now!</Link>
       </div>
     </div>
   );

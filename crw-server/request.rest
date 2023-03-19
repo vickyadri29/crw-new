@@ -1,0 +1,49 @@
+### test get data from api
+GET http://127.0.0.1:3333/
+
+### test login
+POST http://127.0.0.1:3333/login
+Content-Type: application/json
+
+{
+    "email": "cicak@gmail.com",
+    "password": "1122"
+}
+
+### test register
+POST http://127.0.0.1:3333/register
+Content-Type: application/json
+
+{
+    "fullname": "cicak",
+    "email": "cicak@gmail.com",
+    "password": "1122"
+}
+
+### list campaigns
+GET http://127.0.0.1:3333/campaigns
+
+### create campaigns with user token 
+POST http://127.0.0.1:3333/campaigns
+Authorization: Bearer NA.HtmQ0Q1nbVwtcPBwMHZFPrAqe6HqDDYZSqnlZ7zmHS3SH-wRX1_IrftS_rhx
+Content-Type: application/json
+
+{
+    "title": "Testing",
+    "content": "test",
+    "target": "123456",
+    "target_date": "11234123"
+}
+
+### look into details campaign
+GET http://127.0.0.1:3333/campaigns/2
+
+### test donation
+POST http://127.0.0.1:3333/donations
+Authorization: Bearer Mw.KRbxeMKCv0-0fV6av-XCaZunOSFhH37DEuEjEfFUO0Y-yBiCHfVKz3HOGdf4
+Content-Type: application/json
+
+{
+    "campaign_id": "2",
+    "total": 100000
+}
